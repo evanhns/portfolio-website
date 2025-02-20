@@ -1,0 +1,113 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('/Users/evanhaines/Desktop/coding/portfolio-folder/my-portfolio/assets/long_exposure.jpg') center/cover no-repeat;
+    background-attachment: fixed; /* This fixes the background to the viewport */    
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+  
+/* Container for the large name */
+.hero-name-container {
+    position: fixed;
+    top: 38%;             /* Vertically center */
+    left: 12%;            /* 12% from the left edge */
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    mix-blend-mode: difference;
+}
+  
+/* Large name styling */
+.hero-name {
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 12vw;      /* Large text for landing */
+    line-height: 0.85;    /* Adjust line height */
+    color: white;
+    margin: 0;
+    transition: font-size 0.5s ease;
+}
+
+.hero-subtitle {
+    position: fixed;
+    top: 57%;            /* Use top consistently; adjust this value as needed */
+    right: 5%;           /* 5% from the right edge */
+    opacity: 1;
+    transition: top 0.5s ease, opacity 0.5s ease;
+    mix-blend-mode: difference;
+}
+
+
+.hero-subtitle-text {
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 4vw;       /* Subtitle size */
+    color: white;
+    transition: font-size 0.5s ease;
+}
+    
+    
+/* Navigation container for links - initially hidden, centered horizontally */
+.hero-nav {
+    display: flex;
+    justify-content: center; /* or whatever horizontal alignment you need */
+    gap: 100px; /* Adjust gap value to increase or decrease spacing */  
+
+    position: absolute;
+    bottom: -50px;        /* Hidden below viewport initially */
+    left: 50%;            /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to truly center */
+    opacity: 0;
+    transition: all 0.5s ease;
+
+    /* Inherit font properties if needed */
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 8vw;
+    mix-blend-mode: difference;
+}
+  
+/* When scrolled, move hero name container upward */
+.hero.scrolled .hero-name-container {
+    top: 2.15%;             /* Move near the top */
+    left: 1.75%;            /* Adjust left as needed */
+    transform: translateY(0);
+}
+  
+/* Shrink the name for the top bar look */
+.hero.scrolled .hero-name {
+    font-size: 1.8rem;
+}
+  
+/* When scrolled, reposition the navigation */
+.hero.scrolled .hero-nav {
+    bottom: 35%;          /* Adjusted to bring into view properly */
+    transform: translateX(-50%); /* Adjust to truly center horizontally */
+    opacity: 1;
+}
+
+.hero.scrolled .hero-subtitle {
+    top: 10%;          /* Adjusted to bring into view properly */
+    opacity: 0;
+}
+  
+/* Style nav links inside hero-nav */
+.hero-nav a {
+    color: white;           /* White text */
+    text-decoration: none;  /* No underline */
+    margin-right: 20px;     /* Space between links */
+}
+  
+.hero-nav a {
+    color: white;
+    text-decoration: none;
+    transition: letter-spacing 0.3s ease;
+}
+
+.hero-nav a:hover {
+    letter-spacing: 10px; /* Increase spacing on hover */
+}

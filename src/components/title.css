@@ -1,0 +1,29 @@
+.title-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title-main {
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    transform: translateX(-50%);
+
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    /* Add horizontal spacing */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.title-sub {
+  font-size: 1.5rem;
+  color: #666;
+}

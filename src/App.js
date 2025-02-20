@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import PageWrapper from './components/pagewrapper';
+import Hero from './components/hero';
+import Projects from './components/projects';
+import Contact from './components/contact';
+import ScrollSnap from './hooks/ScrollSnap';
+
+const AppContent = ({ scrolled }) => {
+  const location = useLocation();
+  
+  return (
+    <>
+      {/* Render Hero only on the home route */}
+      {location.pathname === '/' && <Hero scrolled={scrolled} />}
+      
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
+  );
+};
 
 function App() {
+  const [scrolled, setScrolled] = useState(false);
+
+  // Call the custom hook to enforce scroll snapping
+  ScrollSnap();
+
+  // Update the "scrolled" state for visual changes (e.g. Hero animations)
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 99);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <PageWrapper scrolled={scrolled} />
+    </Router>
   );
 }
 

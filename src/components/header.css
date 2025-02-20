@@ -1,0 +1,54 @@
+.site-header {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Adjust as needed */
+    /* background: url('/Users/evanhaines/Desktop/coding/portfolio-folder/my-portfolio/assets/long_exposure.jpg') center top/cover no-repeat; */
+    background-attachment: fixed; /* This fixes the background to the viewport */    
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    isolation: isolate; /* helps with blend modes */
+}
+
+.header-left .header-name {
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 1.8rem;  /* Same as hero scrolled */
+    line-height: 0.85;
+    color: white;
+    margin: 0;
+    /* Remove properties that rely on absolute positioning */
+    /* You can add a left margin if you want to mimic a slight offset */
+    margin-left: -14%;
+    margin-top: -12.5%;
+    /* Retain blend mode if desired */
+    mix-blend-mode: difference;
+}
+
+.header-right {
+    position: absolute;
+    right: 10%;
+    top: 49%;
+    transform: translateX(50%);
+}
+
+.header-right nav a {
+    font-family: "Funnel Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    transition: letter-spacing 0.3s ease;
+}
+
+.header-right nav a:hover {
+    letter-spacing: 3px; /* Increase spacing on hover */
+}
